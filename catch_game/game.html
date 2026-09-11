@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Catch the Ball</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    <!-- Load Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="game-container">
+        <!-- 3D Canvas will be injected here by Three.js -->
+        
+        <!-- 2D UI Overlay -->
+        <div id="ui-overlay">
+            <div id="top-left">
+                <div id="lives-container">
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                </div>
+            </div>
+            
+            <div id="top-center">
+                SCORE: <span id="score">0</span>
+            </div>
+            
+            <div id="top-right">
+                <div id="high-score-container">
+                    HIGH SCORE: <span id="high-score">0</span>
+                </div>
+                <div id="icon-buttons">
+                    <button class="pixel-btn" id="sound-btn">🔊</button>
+                    <button class="pixel-btn" id="help-btn">❓</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div id="game-over-modal" class="hidden">
+            <h1>GAME OVER</h1>
+            <p>Final Score: <span id="final-score">0</span></p>
+            <button id="play-again-btn">PLAY AGAIN</button>
+        </div>
+        
+        <!-- Help Modal -->
+        <div id="help-modal" class="hidden">
+            <h2>HOW TO PLAY</h2>
+            <p>Catch the balls!</p>
+            <p>Red (1 pt), Orange (2 pts).</p>
+            <p>Avoid the black bombs!</p>
+            <p>Controls: A/D, Left/Right Arrows, or Drag.</p>
+            <button id="close-help-btn">CLOSE</button>
+        </div>
+    </div>
+
+    <script src="script.js?v=2"></script>
+</body>
+</html>

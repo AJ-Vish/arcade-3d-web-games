@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sunset Hoops</title>
+    <!-- Use a casual font similar to reference -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=1">
+    <!-- Load Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="game-container">
+        <!-- UI Overlay -->
+        <div id="ui-overlay">
+            <button id="sound-btn">🔊</button>
+            <div id="score-display" class="hidden">Score: <span id="current-score">0</span></div>
+            <!-- Play icon sitting on the ball before start -->
+            <div id="play-icon-overlay">
+                <div id="play-btn">▶</div>
+            </div>
+            <!-- Instruction text -->
+            <div id="instruction-text">Flick up to shoot!</div>
+        </div>
+
+        <div id="back-btn-container">
+            <a href="../catch_game/index.html" id="back-btn">⬅ Dashboard</a>
+        </div>
+    </div>
+
+    <script src="script.js?v=1"></script>
+</body>
+</html>
