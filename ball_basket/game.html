@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Ball Basket</title>
+    <!-- Use a casual font similar to reference -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=1">
+    <!-- Load Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="game-container">
+        <!-- UI Overlay -->
+        <div id="ui-overlay">
+            <button id="sound-btn">🔊</button>
+            <div id="lives-display">Lives: ❤️❤️❤️</div>
+            <div id="score-display" class="hidden">Score: <span id="current-score">0</span></div>
+            <!-- Play icon sitting on the ball before start -->
+            <div id="play-icon-overlay">
+                <div id="play-btn">▶</div>
+            </div>
+            <!-- Instruction text -->
+            <div id="instruction-text">Flick up to throw!</div>
+
+            <!-- Game Over Overlay -->
+            <div id="game-over-overlay" class="hidden">
+                <h1 style="color: #ff3333; text-shadow: 2px 2px #000; margin-bottom: 20px;">GAME OVER</h1>
+                <h2 style="color: white; margin-bottom: 40px;">Final Score: <span id="final-score">0</span></h2>
+                <button id="restart-btn">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <div id="back-btn-container">
+            <a href="../index.html" id="back-btn">⬅ Dashboard</a>
+        </div>
+    </div>
+
+    <script src="script.js?v=1"></script>
+</body>
+</html>
