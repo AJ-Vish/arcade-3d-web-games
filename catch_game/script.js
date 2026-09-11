@@ -12,14 +12,28 @@ let soundEnabled = true;
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 const audioCtx = new AudioContext();
 
-// Ensure audio context resumes on first interaction (required by browsers)
-function resumeAudio() {
+// Ensure audio context resumes on first interaction (required by iOS Safari)
+function unlockAudio() {
     if (audioCtx.state === 'suspended') {
         audioCtx.resume();
     }
+    const osc = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+    gainNode.gain.value = 0;
+    osc.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    osc.start(0);
+    osc.stop(0.001);
+    
+    document.removeEventListener('touchstart', unlockAudio);
+    document.removeEventListener('pointerdown', unlockAudio);
+    document.removeEventListener('click', unlockAudio);
+    document.removeEventListener('keydown', unlockAudio);
 }
-window.addEventListener('pointerdown', resumeAudio, { once: true });
-window.addEventListener('keydown', resumeAudio, { once: true });
+document.addEventListener('touchstart', unlockAudio);
+document.addEventListener('pointerdown', unlockAudio);
+document.addEventListener('click', unlockAudio);
+document.addEventListener('keydown', unlockAudio);
 
 function playSound(type) {
     if (!soundEnabled) return;
