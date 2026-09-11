@@ -12,6 +12,15 @@ let soundEnabled = true;
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 const audioCtx = new AudioContext();
 
+// Ensure audio context resumes on first interaction (required by browsers)
+function resumeAudio() {
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
+}
+window.addEventListener('pointerdown', resumeAudio, { once: true });
+window.addEventListener('keydown', resumeAudio, { once: true });
+
 function playSound(type) {
     if (!soundEnabled) return;
     if (audioCtx.state === 'suspended') audioCtx.resume();
